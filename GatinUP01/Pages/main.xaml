@@ -22,7 +22,7 @@
         <Rectangle Fill="LightGray"  Stroke="Black" Grid.Row="0" Grid.ColumnSpan="2"/>
         <Rectangle Fill="Gray" Grid.Column="1" Stroke="Black" Grid.RowSpan="2"/>
 
-        <ListBox Name="MyListBox" Grid.Row="1" Grid.Column="1">
+        <ListBox Name="SensorPanel" Grid.Row="1" Grid.Column="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <!-- Border создает красивую рамку вокруг нашей ячейки-карточки -->
@@ -72,16 +72,40 @@
                Width="304" 
                Height="42"/>
 
-        <TabControl Grid.Row="1" Grid.Column="0">
-            <TabItem Header="Все">
-                <Grid Background="#FFE5E5E5">
-                    
-                </Grid>
-            </TabItem>
-            <TabItem Header="Камера">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-        </TabControl>
+        
+
+        <ListBox Name="DevicePanel" Grid.Row="1" Grid.Column="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <!-- 1. Меняем панель элементов на WrapPanel -->
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <!-- WrapPanel автоматически переносит элементы на новую строку -->
+                    <WrapPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+
+            <!-- 2. Ваш шаблон данных (остается почти таким же, но фиксируем размеры карточки) -->
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="8" Margin="8" Padding="10" Width="150" Height="200" Background="White">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="60"/>
+                            </Grid.RowDefinitions>
+
+                            <Image Source="{Binding ImagePath}" Grid.Row="1" Width="70" Height="70" Margin="0,0,10,0" VerticalAlignment="Top" Stretch="UniformToFill"/>
+                            <TextBlock Grid.Row="0" Text="{Binding Title}" FontSize="14" FontWeight="Bold" TextTrimming="CharacterEllipsis"/>
+                            <TextBlock Grid.Row="0" Text="{Binding Description}" Foreground="Gray" TextWrapping="Wrap" FontSize="12" Margin="0,3,0,5" TextTrimming="CharacterEllipsis"/>
+                            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                                <Button Content="Открыть" Width="70" Margin="0,0,5,0"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
 
 
         <Button Grid.Column="0" 

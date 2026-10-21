@@ -56,8 +56,8 @@ namespace GatinUP01.Pages
             {
                 Button_AddDevice.IsEnabled = false;
             }
-
-            MyListBox.ItemsSource = items;
+            DevicePanel.ItemsSource = items;
+            SensorPanel.ItemsSource = items;
         }
 
         private void Button_AddDevice_Click(object sender, RoutedEventArgs e)
