@@ -24,14 +24,14 @@ namespace GatinUP01
 
             for(int i = 0; i < sensorsLength; i++)
             {
-                int sensorID = rand.Next(1, 5);
-                result.Add(new FoundSensors(i, GiveNameInByID(sensorID, "SensorType"), sensorID));
+                int sensorID = rand.Next(1, 6);
+                result.Add(new FoundSensors(i, $"Sensor - {GiveNameInByID(sensorID, "SensorType")}", sensorID));
             }
 
             for (int i = 0; i < devicesLength; i++)
             {
-                int deviceID = rand.Next(1, 3);
-                result.Add(new FoundDevices(i + sensorsLength, GiveNameInByID(deviceID, "DeviceType"), deviceID));
+                int deviceID = rand.Next(1, 4);
+                result.Add(new FoundDevices(i + sensorsLength, $"Device - {GiveNameInByID(deviceID, "DeviceType")}", deviceID));
             }
 
             return result;
@@ -42,7 +42,7 @@ namespace GatinUP01
             using (var connection = new SqlConnection(CORE.GetConnectionString()))
             {
                 var sql = $"SELECT * FROM [{electro}] WHERE ID = @ID";
-                var currentVal = connection.QueryFirstOrDefault<ElectroElement>(sql, new { ID = id});
+                var currentVal = connection.QueryFirstOrDefault(sql, new { ID = id});
                 return currentVal.Name;
             }
         }

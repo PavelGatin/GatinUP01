@@ -29,8 +29,9 @@ namespace GatinUP01.Pages
         public auth()
         {
             InitializeComponent();
-            CaptchaField.Visibility = Visibility.Hidden;
-            Cptch.Visibility = Visibility.Hidden;
+            CptchName.IsEnabled = false;
+            CaptchaField.IsEnabled = false;
+            Cptch.IsEnabled = false;
         }
 
         private void Button_Enter_Click(object sender, RoutedEventArgs e)
@@ -73,8 +74,9 @@ namespace GatinUP01.Pages
 
         private void EnableCaptcha()
         {
-            CaptchaField.Visibility = Visibility.Visible;
-            Cptch.Visibility = Visibility.Visible;
+            CptchName.IsEnabled = true;
+            CaptchaField.IsEnabled = true;
+            Cptch.IsEnabled = true;
             CaptchaField.Text = "";
             cptch = CORE.GenerateCaptcha();
             Cptch.Content = cptch;

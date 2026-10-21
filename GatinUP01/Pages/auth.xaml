@@ -8,58 +8,111 @@
       d:DesignHeight="720" d:DesignWidth="960"
       Title="auth">
 
-    <Grid Background="LightGray">
+    <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="1"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        
+        <Rectangle Grid.Row="0" Fill="LightGray" HorizontalAlignment="Stretch"/>
+
         <Label Content="Авторизация"
                Grid.Row="0" 
                Height="40" Width="320"
                FontSize="20"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"/>
-        <Rectangle Grid.Row="1" Fill="Gray" Height="1" HorizontalAlignment="Stretch"/>
 
         <TextBox x:Name="Input_Login"
-                 HorizontalAlignment="Center" 
+                 HorizontalAlignment="Left" 
                  FontSize="16" 
-                 Margin="0,254,0,0" 
-                 Grid.Row="2" 
+                 Margin="200,256,0,0" 
+                 Grid.Row="1" 
                  TextWrapping="Wrap" 
-                 Text="Логин" 
+                 Text="" 
                  VerticalAlignment="Top" 
-                 Width="560" Height="42"/>
+                 Width="275" Height="42"
+                 VerticalContentAlignment="Center"/>
 
         <TextBox x:Name="Input_Password"
-                 HorizontalAlignment="Center" 
+                 HorizontalAlignment="Left" 
                  FontSize="16" 
-                 Grid.Row="2" 
+                 Grid.Row="1" 
                  TextWrapping="Wrap" 
-                 Text="Пароль" 
+                 Text="" 
                  VerticalAlignment="Top" 
-                 Width="560" Height="42" 
-                 Margin="0,335,0,0"/>
+                 Width="275" Height="42" 
+                 Margin="200,335,0,0"
+                 VerticalContentAlignment="Center"/>
+
+        <Label Content="Логин" 
+               HorizontalAlignment="Left" 
+               Margin="200,225,0,0" 
+               Grid.Row="1" 
+               VerticalAlignment="Top" 
+               Width="275"/>
+
+        <Label Content="Пароль" 
+               HorizontalAlignment="Left" 
+               Margin="200,304,0,0" 
+               Grid.Row="1" 
+               VerticalAlignment="Top" 
+               Width="275"/>
 
         <Button x:Name="Button_Enter"
+                ToolTip="Войти в систему"
                 Content="Войти" 
                 FontSize="16"
                 HorizontalAlignment="Center" 
                 Margin="0,445,0,0" 
-                Grid.Row="2" 
+                Grid.Row="1" 
                 VerticalAlignment="Top" 
                 Height="50" Width="560" Click="Button_Enter_Click"/>
 
         <Button x:Name="Button_Register"
+                ToolTip="Переход на страницу регистрации"
                 Content="Регистрация" 
                 FontSize="16"
                 HorizontalAlignment="Center" 
                 Margin="0,500,0,0" 
-                Grid.Row="2" 
+                Grid.Row="1" 
                 VerticalAlignment="Top" 
                 Height="50" Width="560" Click="Button_Register_Click"/>
-        <TextBox x:Name="CaptchaField" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="620,185,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="140" Height="32"/>
-        <Label x:Name="Cptch" Content="Label" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="651,154,0,0" Grid.Row="2" VerticalAlignment="Top" Width="109"/>
+        
+        
+
+        <TextBox x:Name="CaptchaField" 
+                 HorizontalAlignment="Left" 
+                 HorizontalContentAlignment="Right" 
+                 VerticalContentAlignment="Center" 
+                 FontSize="16" 
+                 Margin="487,335,0,0" 
+                 Grid.Row="1" 
+                 TextWrapping="Wrap" 
+                 Text="" 
+                 VerticalAlignment="Top" 
+                 Width="273" 
+                 Height="42"/>
+
+        <Label x:Name="CptchName"
+               Content="Captcha" 
+               HorizontalAlignment="Left" 
+               HorizontalContentAlignment="Right"
+               Margin="485,304,0,0" 
+               Grid.Row="1" 
+               VerticalAlignment="Top" 
+               Width="275"/>
+
+        <Label x:Name="Cptch" 
+               Content="Label" 
+               HorizontalContentAlignment="Right" 
+               HorizontalAlignment="Left" 
+               Margin="487,256,0,0" 
+               Grid.Row="1" 
+               VerticalAlignment="Top" 
+               Width="273" 
+               Height="42"
+               VerticalContentAlignment="Center"
+               FontSize="16"/>
     </Grid>
 </Page>

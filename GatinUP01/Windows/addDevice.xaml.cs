@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using GatinUP01.Pages;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -23,9 +24,12 @@ namespace GatinUP01.Windows
     {
         private bool isFoundDevices = false;
         private FoundElectroElements electroElement;
+        private List<FoundElectroElements> foundElements = new List<FoundElectroElements>();
+        private main mainWin;
 
-        public addDevice()
+        public addDevice(main mainWin)
         {
+            this.mainWin = mainWin;
             InitializeComponent();
             IsConnectingLabel();
             FindDevices();
@@ -42,9 +46,8 @@ namespace GatinUP01.Windows
         {
             isFoundDevices = true;
 
-            List<FoundElectroElements> foundElements = TestFoundConnectingDevicesSensors.GetFoundSensorsDevices();
+            foundElements = TestFoundConnectingDevicesSensors.GetFoundSensorsDevices();
             Connecting_List.DisplayMemberPath = "Name";
-            //Connecting_List.ValueMember = "ID";
             Connecting_List.ItemsSource = foundElements;
         }
 
@@ -58,7 +61,14 @@ namespace GatinUP01.Windows
                 UpdateConnectingLabel(idAnim);
             }
 
-            Connecting_Label.Content = "Устройства найдены";
+            if(foundElements.Count > 0)
+            {
+                Connecting_Label.Content = "Устройства найдены";
+            }
+            else
+            {
+                Connecting_Label.Content = "Устройства не найдены";
+            }
         }
 
         private void UpdateConnectingLabel(int id)
@@ -88,14 +98,14 @@ namespace GatinUP01.Windows
                 switch (electroElement) //Определяет куда добавлять устройство и в какую таблицу базы данных
                 {
                     case FoundDevices device:
-                        sql = "INSERT INTO [Device] (Name, DeviceID, Place) VALUES (@Name, @DeviceID, @Place)";
-                        Device newDevice = new Device(device_name, device.devicesType, device_place);
+                        sql = "INSERT INTO [Device] (Name, DeviceID, Place, Status, Info) VALUES (@Name, @DeviceID, @Place, @Status, @Info)";
+                        Device newDevice = new Device(device_name, device.devicesType, device_place, "Не активен", "device information");
                         newRow = connection.Execute(sql, newDevice);
                         break;
 
                     case FoundSensors sensor:
-                        sql = "INSERT INTO [Sensor] (Name, SensorID, Place) VALUES (@Name, @SensorID, @Place)";
-                        Sensor newSensor = new Sensor(device_name, sensor.sensorsType, device_place);
+                        sql = "INSERT INTO [Sensor] (Name, SensorID, Place, Status, Info) VALUES (@Name, @SensorID, @Place, @Status, @Info)";
+                        Sensor newSensor = new Sensor(device_name, sensor.sensorsType, device_place, "Не активен", "sensor information");
                         newRow = connection.Execute(sql, newSensor);
                         break;
                 }
@@ -103,6 +113,7 @@ namespace GatinUP01.Windows
                 if(newRow > 0)
                 {
                     MessageBox.Show("Устройство добавлено");
+                    mainWin.UpdatePanels();
                 }
                 else
                 {
@@ -116,17 +127,21 @@ namespace GatinUP01.Windows
         {
             electroElement = (FoundElectroElements)Connecting_List.SelectedItem;
             Tab_Settings.IsEnabled = true;
+            Field_Name.Text = "";
+            Field_Place.Text = "";
 
             switch (electroElement) //Определяет куда добавлять устройство и в какую таблицу базы данных
             {
                 case FoundDevices device:
-                    //Label_Type.Content = TestFoundConnectingDevicesSensors.GiveNameInByID(device.devicesType, "Device");
-                    //Label_Name.Content = device.Name;
+                    Label_Type.Content = TestFoundConnectingDevicesSensors.GiveNameInByID(device.devicesType, "DeviceType");
+                    Label_Name.Content = device.Name;
+                    Icon_Add.Source = new BitmapImage(new Uri("/Icons/devices.png", UriKind.Relative));
                     break;
 
                 case FoundSensors sensor:
-                    //Label_Type.Content = TestFoundConnectingDevicesSensors.GiveNameInByID(sensor.sensorsType, "Sensor");
-                    //Label_Name.Content = sensor.Name;
+                    Label_Type.Content = TestFoundConnectingDevicesSensors.GiveNameInByID(sensor.sensorsType, "SensorType");
+                    Label_Name.Content = sensor.Name;
+                    Icon_Add.Source = new BitmapImage(new Uri("/Icons/sensors.png", UriKind.Relative));
                     break;
             }
         }

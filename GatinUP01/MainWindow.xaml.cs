@@ -24,5 +24,16 @@ namespace GatinUP01
         {
             InitializeComponent();
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Вы действительно хотите закрыть программу?", "Выход", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+
+            if (result == MessageBoxResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
+
     }
 }

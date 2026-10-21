@@ -1,0 +1,132 @@
+﻿<Page x:Class="GatinUP01.Pages.profile"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GatinUP01.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="960"
+      Title="profile">
+
+    <Grid Background="White">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+
+        <Rectangle Fill="LightGray"  Stroke="Black" Grid.Row="0" Grid.ColumnSpan="2"/>
+        <Rectangle Grid.Column="1" Stroke="Black" Grid.RowSpan="2"/>
+
+        <Button x:Name="Button_Back"
+                ToolTip="Вернуться назад"
+                Grid.Column="0" 
+                HorizontalAlignment="Left" 
+                Height="42" 
+                VerticalAlignment="Center" 
+                Width="42" Margin="4,0,0,0" Click="Button_Back_Click">
+            <Image Source="/Icons/user.png"/>
+        </Button>
+        <Image Source="/Icons/user.png" Grid.Column="1" HorizontalAlignment="Center" Height="281" Margin="0,5,0,0" Grid.Row="1" VerticalAlignment="Top" Width="280"/>
+
+        <Label x:Name="Label_Name"
+               Grid.Column="1" 
+               Content="Имя" 
+               HorizontalAlignment="Center" 
+               Margin="0,309,0,0" 
+               Grid.Row="1" 
+               VerticalAlignment="Top" 
+               Width="280"/>
+
+        <Label x:Name="Label_Login"
+               Grid.Column="1" 
+               Content="Логин" 
+               HorizontalAlignment="Center" 
+               Margin="0,340,0,0" 
+               Grid.Row="1" 
+               VerticalAlignment="Top" 
+               Width="280"/>
+
+        <Label x:Name="Label_Role"
+               Grid.Column="1" 
+               Content="Роль" 
+               HorizontalAlignment="Center" 
+               Margin="0,371,0,0" 
+               Grid.Row="1" 
+               VerticalAlignment="Top" 
+               Width="280"/>
+        
+        <Label Content="Смена пароля" 
+               FontSize="20" 
+               HorizontalAlignment="Center" 
+               Margin="0,5,0,0" 
+               Grid.Row="1" 
+               VerticalAlignment="Top" 
+               Width="640"/>
+        
+        <Label Content="Новый пароль" 
+               HorizontalAlignment="Left" 
+               Margin="10,59,0,0" 
+               Grid.Row="1" 
+               VerticalAlignment="Top" 
+               Width="300"/>
+
+        <TextBox x:Name="Input_NewPassword"
+                 HorizontalAlignment="Left" 
+                 Margin="10,85,0,0" 
+                 Grid.Row="1" 
+                 TextWrapping="Wrap" 
+                 Text="TextBox" 
+                 VerticalAlignment="Top" 
+                 Width="300"/>
+        
+        <Label Content="Подтвердить пароль" 
+               HorizontalAlignment="Left" 
+               Margin="10,103,0,0" 
+               Grid.Row="1" 
+               VerticalAlignment="Top" 
+               Width="300"/>
+        
+        <TextBox x:Name="Input_ConfirmPassword"
+                 HorizontalAlignment="Left" 
+                 Margin="10,129,0,0" 
+                 Grid.Row="1" 
+                 TextWrapping="Wrap" 
+                 Text="TextBox" 
+                 VerticalAlignment="Top" 
+                 Width="300"/>
+        
+        <Label x:Name="Label_Captcha"
+               Content="Капча" 
+               HorizontalAlignment="Left" 
+               Margin="330,59,0,0" 
+               Grid.Row="1" 
+               VerticalAlignment="Top" 
+               Width="300"/>
+        
+        <TextBox x:Name="Input_Captcha"
+                 HorizontalAlignment="Left" 
+                 Margin="330,85,0,0" 
+                 Grid.Row="1" 
+                 TextWrapping="Wrap" 
+                 Text="TextBox" 
+                 VerticalAlignment="Top" 
+                 Width="300"/>
+
+        <Button x:Name="Button_ChangePassword"
+                ToolTip="Сменить пароль"
+                Content="Сменить пароль" 
+                HorizontalAlignment="Left" 
+                Margin="330,116,0,0" 
+                Grid.Row="1" 
+                VerticalAlignment="Top"
+                Width="300" 
+                Height="31" Click="Button_ChangePassword_Click"/>
+
+    </Grid>
+</Page>

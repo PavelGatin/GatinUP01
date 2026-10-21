@@ -27,6 +27,17 @@ namespace GatinUP01
             return connectionString;
         }
 
+        public static string GetUserRole(User user)
+        {
+            using(var connection = new SqlConnection(connectionString))
+            {
+                var sql_local = "SELECT * FROM [Role] WHERE ID = @Id";
+                var foundRole = connection.QueryFirstOrDefault(sql_local, new {Id = user.RoleID});
+                return foundRole.Name;
+            }
+            
+        }
+
         public static string GetHash(string password)
         {
             using (var hash = SHA1.Create())
@@ -67,6 +78,12 @@ namespace GatinUP01
         }
     }
 
+    public class Role
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+    }
+
 
     public class User
     {
@@ -96,12 +113,21 @@ namespace GatinUP01
         public string Name { get; set; }
         public int DeviceID { get; set; }
         public string Place { get; set; }
-        
-        public Device(string name, int deviceID, string place)
+        public string Status { get; set; }
+        public string Info { get; set; }
+
+        public Device()
+        {
+
+        }
+
+        public Device(string name, int deviceID, string place, string status, string info)
         {
             Name = name;
             DeviceID = deviceID;
             Place = place;
+            Status = status;
+            Info = info;
         }
     }
 
@@ -111,12 +137,21 @@ namespace GatinUP01
         public string Name { get; set; }
         public int SensorID { get; set; }
         public string Place { get; set; }
+        public string Status { get; set; }
+        public string Info { get; set; }
 
-        public Sensor(string name, int sensorID, string place)
+        public Sensor()
+        {
+
+        }
+
+        public Sensor(string name, int sensorID, string place, string status, string info)
         {
             Name = name;
             SensorID = sensorID;
             Place = place;
+            Status = status;
+            Info = info;
         }
     }
 

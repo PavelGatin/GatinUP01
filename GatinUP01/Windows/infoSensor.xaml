@@ -1,0 +1,66 @@
+﻿<Window x:Class="GatinUP01.Windows.infoSensor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GatinUP01.Windows"
+        mc:Ignorable="d"
+        Title="Информация о датчиках" Height="450" Width="350"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+
+
+
+
+        <Image Source="/Icons/sensors.png"
+               HorizontalAlignment="Left" 
+               Height="100" 
+               Margin="6,0,0,0" 
+               VerticalAlignment="Center" 
+               Width="100"/>
+
+        <Label x:Name="Label_Type"
+               Content="Label" 
+               HorizontalAlignment="Left" 
+               Margin="111,10,0,0" 
+               VerticalAlignment="Top" 
+               Width="229"/>
+
+        <Label x:Name="Label_Name"
+               Content="Label" 
+               HorizontalAlignment="Left" 
+               Margin="111,41,0,0" 
+               VerticalAlignment="Top" 
+               Width="229"/>
+
+        <Label x:Name="Label_Place"
+               Content="Label" 
+               HorizontalAlignment="Left" 
+               Margin="111,72,0,0" 
+               VerticalAlignment="Top" 
+               Width="229"/>
+
+        <TextBox 
+                x:Name="TextBox_Status"
+                Margin="5" 
+                Grid.Row="1"
+                TextWrapping="Wrap" 
+                IsReadOnly="True"
+                Text="Статус" />
+
+        <Button x:Name="Button_Delete"
+                ToolTip="Удаление устройства из системы (доступно только администраторам)"
+                Grid.Row="2"
+                Content="Удалить устройство" 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top" 
+                Width="330" Click="Button_Delete_Click"/>
+
+    </Grid>
+</Window>

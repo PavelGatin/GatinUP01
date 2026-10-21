@@ -8,66 +8,97 @@
       d:DesignHeight="720" d:DesignWidth="960"
       Title="register">
 
-    <Grid Background="LightGray">
+    <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="1"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        
+        <Rectangle Grid.Row="0" Fill="LightGray" HorizontalAlignment="Stretch"/>
+        
         <Label Content="Регистрация"
                Grid.Row="0" 
                Height="40" Width="320"
                FontSize="20"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"/>
-        <Rectangle Grid.Row="1" Fill="Gray" Height="1" HorizontalAlignment="Stretch"/>
+        
+
+        <Label Content="Имя" 
+               HorizontalAlignment="Center" 
+               Margin="0,219,0,0" 
+               Grid.Row="1" 
+               VerticalAlignment="Top" 
+               Width="560"/>
 
         <TextBox x:Name="Input_Name"
-                HorizontalAlignment="Center" 
-                FontSize="16" 
-                Margin="0,168,0,0" 
-                Grid.Row="2" 
-                TextWrapping="Wrap" 
-                Text="Имя" 
-                VerticalAlignment="Top" 
-                Width="560" Height="42"/>
+                 HorizontalAlignment="Center" 
+                 FontSize="16" 
+                 Margin="0,251,0,0" 
+                 Grid.Row="1" 
+                 TextWrapping="Wrap" 
+                 Text="" 
+                 VerticalAlignment="Top" 
+                 Width="560" Height="42"
+                 VerticalContentAlignment="Center"/>
 
         <TextBox x:Name="Input_Login"
-                 HorizontalAlignment="Center" 
+                 HorizontalAlignment="Left" 
                  FontSize="16" 
-                 Margin="0,254,0,0" 
-                 Grid.Row="2" 
+                 Margin="200,334,0,0" 
+                 Grid.Row="1" 
                  TextWrapping="Wrap" 
-                 Text="Логин" 
+                 Text="" 
                  VerticalAlignment="Top" 
-                 Width="560" Height="42"/>
+                 Width="275" Height="42"
+                 VerticalContentAlignment="Center"/>
 
         <TextBox x:Name="Input_Password"
-                 HorizontalAlignment="Center" 
+                 HorizontalAlignment="Left" 
                  FontSize="16" 
-                 Grid.Row="2" 
+                 Grid.Row="1" 
                  TextWrapping="Wrap" 
-                 Text="Пароль" 
+                 Text="" 
                  VerticalAlignment="Top" 
-                 Width="560" Height="42" 
-                 Margin="0,335,0,0"/>
+                 Width="275" Height="42" 
+                 Margin="485,335,0,0"
+                 VerticalContentAlignment="Center"/>
+
+        <Label Content="Логин" 
+               HorizontalAlignment="Left" 
+               Margin="200,303,0,0" 
+               Grid.Row="1" 
+               VerticalAlignment="Top" 
+               Width="275"/>
+
+        <Label Content="Пароль" 
+               HorizontalAlignment="Left" 
+               Margin="485,303,0,0" 
+               Grid.Row="1" 
+               VerticalAlignment="Top" 
+               Width="275"/>
+
+
+
 
         <Button x:Name="Button_Enter"
+                ToolTip="Зарегистрироваться в системе"
                 Content="Зарегистрироваться" 
                 FontSize="16"
                 HorizontalAlignment="Center" 
                 Margin="0,445,0,0" 
-                Grid.Row="2" 
+                Grid.Row="1" 
                 VerticalAlignment="Top" 
                 Height="50" Width="560" Click="Button_Enter_Click"/>
 
         <Button x:Name="Button_Auth"
+                ToolTip="Вернуться обратно на страницу авторизации"
                 Content="Авторизация" 
                 FontSize="16"
                 HorizontalAlignment="Center" 
                 Margin="0,500,0,0" 
-                Grid.Row="2" 
+                Grid.Row="1" 
                 VerticalAlignment="Top" 
-                Height="50" Width="560" Click="Button_Auth_Click"/>        
+                Height="50" Width="560" Click="Button_Auth_Click"/>
     </Grid>
 </Page>
