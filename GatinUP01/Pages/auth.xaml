@@ -24,6 +24,7 @@
                VerticalContentAlignment="Center"/>
 
         <TextBox x:Name="Input_Login"
+                 Tag="Введите логин"
                  HorizontalAlignment="Left" 
                  FontSize="16" 
                  Margin="200,256,0,0" 
@@ -35,6 +36,7 @@
                  VerticalContentAlignment="Center"/>
 
         <TextBox x:Name="Input_Password"
+                 Tag="Введите пароль"
                  HorizontalAlignment="Left" 
                  FontSize="16" 
                  Grid.Row="1" 
@@ -78,11 +80,12 @@
                 Grid.Row="1" 
                 VerticalAlignment="Top" 
                 Height="50" Width="560" Click="Button_Register_Click"/>
-        
-        
+
+
 
         <TextBox x:Name="CaptchaField" 
                  HorizontalAlignment="Left" 
+                 Tag="Капча"
                  HorizontalContentAlignment="Right" 
                  VerticalContentAlignment="Center" 
                  FontSize="16" 

@@ -30,7 +30,7 @@
                 Height="42" 
                 VerticalAlignment="Center" 
                 Width="42" Margin="4,0,0,0" Click="Button_Back_Click">
-            <Image Source="/Icons/user.png"/>
+            <Image Source="/Icons/back.png"/>
         </Button>
         <Image Source="/Icons/user.png" Grid.Column="1" HorizontalAlignment="Center" Height="281" Margin="0,5,0,0" Grid.Row="1" VerticalAlignment="Top" Width="280"/>
 
@@ -77,11 +77,12 @@
                Width="300"/>
 
         <TextBox x:Name="Input_NewPassword"
+                 Tag="Введите новый пароль"
                  HorizontalAlignment="Left" 
                  Margin="10,85,0,0" 
                  Grid.Row="1" 
                  TextWrapping="Wrap" 
-                 Text="TextBox" 
+                 Text="" 
                  VerticalAlignment="Top" 
                  Width="300"/>
         
@@ -91,13 +92,14 @@
                Grid.Row="1" 
                VerticalAlignment="Top" 
                Width="300"/>
-        
+
         <TextBox x:Name="Input_ConfirmPassword"
+                 Tag="Введите новый пароль"
                  HorizontalAlignment="Left" 
                  Margin="10,129,0,0" 
                  Grid.Row="1" 
                  TextWrapping="Wrap" 
-                 Text="TextBox" 
+                 Text="" 
                  VerticalAlignment="Top" 
                  Width="300"/>
         
@@ -108,13 +110,14 @@
                Grid.Row="1" 
                VerticalAlignment="Top" 
                Width="300"/>
-        
+
         <TextBox x:Name="Input_Captcha"
+                 Tag="Введите капчу"
                  HorizontalAlignment="Left" 
                  Margin="330,85,0,0" 
                  Grid.Row="1" 
                  TextWrapping="Wrap" 
-                 Text="TextBox" 
+                 Text="" 
                  VerticalAlignment="Top" 
                  Width="300"/>
 
